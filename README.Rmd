@@ -77,3 +77,12 @@ while (i <= num_sims) {
 # View results
 kable(all.chances.df)
 ```
+
+
+# The Chiefs have the best chance of winning it all!
+
+Remember probabilities are just that... probabilities... It doesn't mean that they WILL win. But they have the best chance to win. I love the playoffs! Anything can happen! Let's see how this plays out!  
+
+***
+
+Feel free to play around with the percentages in the "playoff_games.csv" file to see how it affects the simulation.

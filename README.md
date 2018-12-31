@@ -70,6 +70,7 @@ View Results
 # View results
 kable(all.chances.df)
 ```
+
 |team |Divisional |Conference |Superbowl |Champion |
 |:----|:----------|:----------|:---------|:--------|
 |KC   |0%         |66.36%     |44.88%    |27.13%   |
@@ -84,3 +85,13 @@ kable(all.chances.df)
 |IND  |43.21%     |15.14%     |4.85%     |2.12%    |
 |DAL  |42.18%     |16.22%     |5.14%     |1.29%    |
 |PHI  |34.75%     |12.26%     |4.4%      |1.16%    |
+
+
+The Chiefs have the best chance of winning it all!
+==================================================
+
+Remember probabilities are just that... probabilities... It doesn't mean that they WILL win. But they have the best chance to win. I love the playoffs! Anything can happen! Let's see how this plays out!
+
+------------------------------------------------------------------------
+
+Feel free to play around with the percentages in the "playoff\_games.csv" file to see how it affects the simulation.
