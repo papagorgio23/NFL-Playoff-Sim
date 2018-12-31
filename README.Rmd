@@ -1,0 +1,79 @@
+---
+title: "NFL Playoff Simulation"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## This repository will simulate the 2019 NFL Playoffs. 
+
+##### This is the code from my blog post for [A.I. Sports](https://aisportsfirm.com/predicting-nfl-playoffs/). 
+
+
+1,000,001 simulations takes some time to run. If you lower the num_sims it will be quicker to play around with on your own.
+
+```{r eval=FALSE}
+set.seed(1234)
+while (i <= num_sims) {
+  
+  ##### Wild Card Weekend
+  # AFC
+  wc.1.afc <- simulate.game(afc.3, afc.6)
+  wc.2.afc <- simulate.game(afc.4, afc.5)
+  
+  # NFC
+  wc.1.nfc <- simulate.game(nfc.3, nfc.6)
+  wc.2.nfc <- simulate.game(nfc.4, nfc.5)
+  
+  ##### Divisional Weekend
+  # AFC
+  dw.1.afc <- simulate.game(afc.1, wc.2.afc)
+  dw.2.afc <- simulate.game(afc.2, wc.1.afc)
+  
+  # NFC
+  dw.1.nfc <- simulate.game(nfc.1, wc.2.nfc)
+  dw.2.nfc <- simulate.game(nfc.2, wc.1.nfc)
+  
+  ##### Championship Weekend
+  # AFC
+  cw.1.afc <- simulate.game(dw.1.afc, dw.2.afc)
+  
+  # NFC
+  cw.1.nfc <- simulate.game(dw.1.nfc, dw.2.nfc)
+  
+  ##### Superbowl
+  champ <- simulate.game(cw.1.afc, cw.1.nfc)
+  
+  #print(paste0("This is the winner ",champ))
+  
+  results.all <- c( 
+    i,  
+    wc.1.afc,
+    wc.2.afc,
+    wc.1.nfc,
+    wc.2.nfc,
+    dw.1.afc,
+    dw.2.afc,
+    dw.1.nfc,
+    dw.2.nfc,
+    cw.1.afc,
+    cw.1.nfc,
+    champ
+  )
+  
+  simulation.results <- c(simulation.results, results.all)
+  
+  i <- i + 1 
+}
+```
+
+## View Results
+
+
+
+```{r, eval=FALSE}
+# View results
+kable(all.chances.df)
+```
